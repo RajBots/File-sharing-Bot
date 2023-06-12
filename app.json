@@ -1,0 +1,81 @@
+{
+  "name": "TG File Share/Sharing Bot",
+  "description": "file sharing bot store posts and it can be accessed by special links",
+  "keywords": [
+    "telegram",
+    "file",
+    "sharing"
+  ],
+  "repository": "https://github.com/ArtOfWorking/File-Sharing-Bot",
+  "logo": "https://ibb.co/FgPVtzw",
+  "env": {
+    "TG_BOT_TOKEN": {
+      "description": "Your Bot token, Get it from @Botfather",
+      "required": true
+    },
+    "OWNER_ID": {
+      "description": "An integer consisting of your owner ID",
+      "value": "1250450587",
+      "required": true
+    },
+    "APP_ID":{
+      "description": "Your app ID, take it from my.telegram.org",
+      "required": true
+    },
+    "DATABASE_URL": {
+      "description": "Paste your MongoDB URL",
+      "value": "url",
+      "required": true
+    },
+    "DATABASE_NAME":{
+      "description": "Enter your DATABASE_NAME",
+      "value": "filesharexbot",
+      "required": true
+    },
+    "API_HASH":{
+      "description": "Your API hash, take it from my.telegram.org",
+      "required": true
+    },
+    "CHANNEL_ID":{
+      "description": "Make a channel (database channel), then make the bot as an admin in the channel, and enter its ID",
+      "value": "-100",
+      "required": true
+    },
+    "FORCE_SUB_CHANNEL":{
+      "description": "ID of the channel or group. If you want to enable the force subscribe feature, enter the ID. Otherwise, put 0",
+      "value": "0",
+      "required": true
+    },
+    "START_MESSAGE": {
+      "description": "Optional: Start message of the bot, use HTML parse mode format",
+      "value": "Hello {first}\n\nI can store private files in a specified channel, and other users can access them from a special link.",
+      "required": false
+    },
+    "FORCE_SUB_MESSAGE": {
+      "description": "Optional: Force subscribe message of the bot, use HTML parse mode format",
+      "value": "Hello {first}\n\n<b>You need to join my Channel/Group to use me.\n\nKindly, please join the Channel</b>",
+      "required": false
+    },
+    "ADMINS": {
+      "description": "A space-separated list of user IDs of admins. They can only create links",
+      "required": false
+    },
+    "PROTECT_CONTENT": {
+      "description": "Protect contents from getting forwarded",
+      "value": "False",
+      "required": false
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "eco"
+    }
+  }
+}
+
